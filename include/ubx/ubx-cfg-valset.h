@@ -18,6 +18,11 @@ typedef enum {
   UBX_CFG_VALSET_TMODE_MODE_FIXED, // True ARP position information required
 } ubx_cfg_valset_tmode_mode_t;
 
+typedef enum {
+  UBX_CFG_VALSET_TMODE_POS_TYPE_ECEF,
+  UBX_CFG_VALSET_TMODE_POS_TYPE_LLH,
+} ubx_cfg_valset_tmode_pos_type_t;
+
 typedef struct {
   uint8_t version; // 0x00 without transaction
   uint8_t layers;

@@ -48,20 +48,47 @@ typedef enum {
   UBX_KEY_CFG_MSGOUT_UBX_NAV_PVT_USB =    0x20910009, // [ U1 | - ]
   UBX_KEY_CFG_MSGOUT_UBX_NAV_SVIN_UART1 = 0x20910089, // [ U1 | - ]
   UBX_KEY_CFG_MSGOUT_UBX_NAV_SVIN_USB =   0x2091008b, // [ U1 | - ]
+
+
   // 6.9.28 CFG-TMODE: Time mode configuration
-  UBX_KEY_CFG_TMODE_MODE =           0x20030001, // [ E1 | - ]      Receiver mode
+  UBX_KEY_CFG_TMODE_MODE =     0x20030001, // [ E1 | - ]      Receiver mode
+  UBX_KEY_CFG_TMODE_POS_TYPE = 0x20030002, // [ E1 | - ] Determines whether the ARP position is given in ECEF or LAT/LON/HEIGHT
+
+  UBX_KEY_CFG_TMODE_ECEF_X = 0x40030003, // [ I4 | cm ] ECEF X coordinate of the ARP position
+  UBX_KEY_CFG_TMODE_ECEF_Y = 0x40030004, // [ I4 | cm ] ECEF Y coordinate of the ARP position
+  UBX_KEY_CFG_TMODE_ECEF_Z = 0x40030005, // [ I4 | cm ] ECEF Z coordinate of the ARP position
+
+  UBX_KEY_CFG_TMODE_ECEF_X_HP = 0x20030006, // [ I1 | 0.1 mm ] High-precision ECEF X coordinate of the ARP position
+  UBX_KEY_CFG_TMODE_ECEF_Y_HP = 0x20030007, // [ I1 | 0.1 mm ] High-precision ECEF Y coordinate of the ARP position
+  UBX_KEY_CFG_TMODE_ECEF_Z_HP = 0x20030008, // [ I1 | 0.1 mm ] High-precision ECEF Z coordinate of the ARP position
+
+  UBX_KEY_CFG_TMODE_LAT    = 0x40030009, // [ I4 | 1e-7 deg ] Latitude of the ARP position
+  UBX_KEY_CFG_TMODE_LON    = 0x4003000a, // [ I4 | 1e-7 deg ] Longitude of the ARP position
+  UBX_KEY_CFG_TMODE_HEIGHT = 0x4003000b, // [ I4 | cm ]       Height of the ARP position
+
+  UBX_KEY_CFG_TMODE_LAT_HP    = 0x2003000c, // [ I1 | 1e-9 deg ] High-precision latitude of the ARP position
+  UBX_KEY_CFG_TMODE_LON_HP    = 0x2003000d, // [ I1 | 1e-9 deg ] High-precision longitude of the ARP position
+  UBX_KEY_CFG_TMODE_HEIGHT_HP = 0x2003000e, // [ I1 | 0.1 mm ] High-precision height of the ARP position
+
+  UBX_KEY_CFG_TMODE_FIXED_POS_ACC =  0x4003000f, // [ U4 | 0.1 mm ] Fixed position 3D accuracy
   UBX_KEY_CFG_TMODE_SVIN_MIN_DUR =   0x40030010, // [ U4 | s ]      Survey-in minimum duration
-  UBX_KEY_CFG_TMODE_SVIN_ACC_LIMIT = 0x40030011, // [ U4 | 0.1mm ]  Survey-in position accuracy limit
+  UBX_KEY_CFG_TMODE_SVIN_ACC_LIMIT = 0x40030011, // [ U4 | 0.1 mm ] Survey-in position accuracy limit
+
+
   // 6.9.31 CFG-UART1: Configuration of the UART1 interface
   UBX_KEY_CFG_UART1_BAUDRATE =   0x40520001, // [ U4 | - ] The baud rate that should be configured on the UART1
   UBX_KEY_CFG_UART1_STOPBITS =   0x20520002, // [ E1 | - ] Number of stopbits that should be used on UART1
   UBX_KEY_CFG_UART1_DATABITS =   0x20520003, // [ E1 | - ] Number of databits that should be used on UART1
   UBX_KEY_CFG_UART1_PARITY =     0x20520004, // [ E1 | - ] Parity mode that should be used on UART1
   UBX_KEY_CFG_UART1_ENABLED =    0x10520005, // [ L  | - ] Flag to indicate if the UART1 should be enabled
+
+
   // 6.9.33 CFG-UART1OUTPROT: Output protocol configuration of the UART1 interface
   UBX_KEY_CFG_UART1OUTPROT_UBX =    0x10740001, // [ L  | - ] Flag to indicate if UBX should be an output protocol on UART1
   UBX_KEY_CFG_UART1OUTPROT_NMEA =   0x10740002, // [ L  | - ] Flag to indicate if NMEA should be an output protocol on UART1
   UBX_KEY_CFG_UART1OUTPROT_RTCM3X = 0x10740004, // [ L  | - ] Flag to indicate if RTCM3X should be an output protocol on UART1
+
+
   // 6.9.39 CFG-USBOUTPROT: Output protocol configuration of the USB interface
   UBX_KEY_CFG_USBOUTPROT_UBX =    0x10780001, // [ L  | - ] Flag to indicate if UBX should be an output protocol on USB
   UBX_KEY_CFG_USBOUTPROT_NMEA =   0x10780002, // [ L  | - ] Flag to indicate if NMEA should be an output protocol on USB
